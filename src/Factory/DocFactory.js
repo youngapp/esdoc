@@ -86,7 +86,9 @@ export default class DocFactory {
    */
   _inspectExportDefaultDeclaration() {
     const pseudoExportNodes = [];
-
+    this._ast = this._ast || {};
+    this._ast.program = this._ast.program || {};
+    this._ast.program.body = this._ast.program.body || [];
     for (const exportNode of this._ast.program.body) {
       if (exportNode.type !== 'ExportDefaultDeclaration') continue;
 
